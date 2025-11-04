@@ -28,7 +28,7 @@ public class Library {
      * @return void
      */
     public void borrowBook(User user, Book book) {
-        if (!bookList.get(book)) {
+        if (!bookList.containsKey(book) || !bookList.get(book)) {
             System.out.println("Sorry, that book is not available.");
             return;
         }
@@ -47,6 +47,18 @@ public class Library {
      * @return void
      */
     public void returnBook(User user, Book book) {
+        if (!bookList.containsKey(book)) {
+            System.out.println("Sorry, that book is not in the library.");
+            return;
+        }
+        if (!users.contains(user)) {
+            System.out.println("Sorry, User not found.");
+            return;
+        }
+        if (!user.hasBook(book)) {
+            System.out.println("Sorry, that book is not in your collection.");
+            return;
+        }
         user.removeBook(book);
         bookList.put(book, true);
         if (user.getBooksInHandCount() == 0) {
@@ -70,6 +82,10 @@ public class Library {
      * @return void
      */
     public void getUserBookList(User user) {
+        if (!users.contains(user)) {
+            System.out.println("Sorry, User not found.");
+            return;
+        }
         user.getBooksInHandList();
     }
 
@@ -80,6 +96,10 @@ public class Library {
      * @return void
      */
     public void getUserBookCount(User user) {
+        if (!users.contains(user)) {
+            System.out.println("Sorry, User not found.");
+            return;
+        }
         System.out.println(user.getName() + " books count: " + user.getBooksInHandCount());
     }
 

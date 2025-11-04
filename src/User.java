@@ -40,7 +40,6 @@ public class User {
      * Adds a book to the user's collection of borrowed books.
      *
      * @param Book book
-     *
      * @return void
      */
     public void addBook(Book book) {
@@ -51,7 +50,6 @@ public class User {
      * Removes a book from the user's collection of borrowed books.
      *
      * @param Book book
-     *
      * @return void
      */
     public void removeBook(Book book) {
@@ -78,5 +76,15 @@ public class User {
      */
     public int getBooksInHandCount() {
         return this.booksInHand.size();
+    }
+
+    /**
+     * Checks if a user has a specific book in their collection.
+     *
+     * @param Book book
+     * @return boolean
+     */
+    public boolean hasBook(Book book) {
+        return booksInHand.contains(book);
     }
 }

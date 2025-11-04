@@ -11,7 +11,9 @@ void main() {
     library.addBook(book3);
     library.addBook(book4);
 
+    System.out.println("-----------------------------");
     library.getBookList();
+    System.out.println("-----------------------------");
 
     User user1 = new User("Yavor Nikola", "465351154");
 
@@ -19,18 +21,19 @@ void main() {
     library.borrowBook(user1, book3);
 
     library.getUserBookList(user1);
+    System.out.println("-----------------------------");
     library.getUserBookCount(user1);
+    System.out.println("-----------------------------");
     library.getUserList();
-
+    System.out.println("-----------------------------");
     library.getBookList();
-
+    System.out.println("-----------------------------");
     library.returnBook(user1, book1);
-
     library.getUserBookList(user1);
+    System.out.println("-----------------------------");
     library.getUserBookCount(user1);
-
+    System.out.println("-----------------------------");
     library.getBookList();
-
     System.out.println("-----------------------------");
     User user2 = new User("John Doe", "4892133231");
     library.borrowBook(user2, book3);
